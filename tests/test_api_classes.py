@@ -32,7 +32,7 @@ class TestPosts:
         response = session.get(f"{base_url}/{resource_name}")
         data = response.json()
 
-        assert response.status_code == 200, (f"{response.status_code} != 200")
+        assert response.status_code == 200, (f"{response.status_code} != 200, да, что-то не так")
         assert isinstance(data, list), (f"{type(data)} != list")
 
     def test_get_post(self, base_url, session, resource_name):
