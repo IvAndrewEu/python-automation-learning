@@ -1,2 +1,2 @@
-print('Hello, world')
+print('Hello from feature')
 print("Feature branch")
