@@ -1,4 +1,4 @@
-print("change from master")
+print("change from conflict-practice")
 print('Hello from master flomaster')
 print('Hello from feature')
 print("Feature branch")
