@@ -8,4 +8,8 @@ print("change from practice branch")
 print("GitHub push practice")
 print("change from GitHub")
 print("feature remote branch")
+print("local conflict practice")
+print("remote conflict practice")
+print("change from developer A")
 print("change from developer B")
+
