@@ -13,4 +13,3 @@ print("remote conflict practice")
 print("change from developer A")
 print("change from developer B")
 print("test")
-
