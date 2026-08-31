@@ -1,6 +1,6 @@
 import os
 
-BASE_URL = os.getenv("BASE-URL")
+BASE_URL = os.getenv("BASE_URL")
 API_TOKEN = os.getenv("API_TOKEN")
 
 if BASE_URL is None:
