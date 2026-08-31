@@ -1,7 +1,7 @@
 import os
 
 BASE_URL = os.getenv("BASE-URL")
-API_TOKEN = os.getenv("API-TOKEN")
+API_TOKEN = os.getenv("API_TOKEN")
 
 if BASE_URL is None:
     raise ValueError("BASE_URL is not set")
