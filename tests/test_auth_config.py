@@ -19,6 +19,6 @@ def test_get_headers(token, expected_status):
         headers=headers
     )
 
-    assert response.status_code == {expected_status}
+    assert response.status_code == expected_status
     data = response.json()
 
