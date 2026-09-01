@@ -1,12 +1,13 @@
 import requests
 import pytest
+
 from config import API_TOKEN, BASE_URL
 
 
 
 @pytest.mark.parametrize(
     "token, expected_status",
-    [({API_TOKEN}, 200),
+    [(API_TOKEN, 200),
     ("wrong token", 401)]
 )
 def test_get_headers(token, expected_status):
@@ -20,5 +21,4 @@ def test_get_headers(token, expected_status):
     )
 
     assert response.status_code == expected_status
-    data = response.json()
 
