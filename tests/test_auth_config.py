@@ -9,7 +9,7 @@ from config import API_TOKEN, BASE_URL
     [({API_TOKEN}, 200),
     ("wrong token", 401)]
 )
-def test_get_headers(token, expected_status)
+def test_get_headers(token, expected_status):
     headers = {
         "Authorization": f"Bearer {token}"
     }
