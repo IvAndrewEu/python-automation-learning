@@ -1,10 +1,17 @@
 import requests
-
+import pytest
 from config import API_TOKEN, BASE_URL
 
-def test_get_headers():
+
+
+@pytest.mark.parametrize(
+    "token, expected_status",
+    [({API_TOKEN}, "wrong token"),
+    (200, 401)]
+)
+def test_get_headers(token, expected_status)
     headers = {
-        "Authorization": f"Bearer {API_TOKEN}"
+        "Authorization": f"Bearer {token}"
     }
 
     response = requests.get(
@@ -12,24 +19,6 @@ def test_get_headers():
         headers=headers
     )
 
-    assert response.status_code == 200
+    assert response.status_code == {expected_status}
     data = response.json()
-    print(response.status_code)
-    print(response.json())
 
-def test_get_headers_without_token():
-    response = requests.get(f"{BASE_URL}/bearer")
-
-    assert response.status_code == 401
-
-
-def test_get_headers_with_not_correct_token():
-    headers = {
-        "Authorization": "wrong token"
-    }
-
-    response = requests.get(
-        f"{BASE_URL}/bearer", headers=headers
-    )
-
-    assert response.status_code == 401
