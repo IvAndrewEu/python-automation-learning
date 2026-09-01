@@ -21,3 +21,15 @@ def test_get_headers_without_token():
     response = requests.get(f"{BASE_URL}/bearer")
 
     assert response.status_code == 401
+
+
+def test_get_headers_with_not_correct_token():
+    headers = {
+        "Authorization": "wrong token"
+    }
+
+    response = requests.get(
+        f"{BASE_URL}/bearer", headers=headers
+    )
+
+    assert response.status_code == 401
