@@ -6,8 +6,8 @@ from config import API_TOKEN, BASE_URL
 
 @pytest.mark.parametrize(
     "token, expected_status",
-    [({API_TOKEN}, "wrong token"),
-    (200, 401)]
+    [({API_TOKEN}, 200),
+    ("wrong token", 401)]
 )
 def test_get_headers(token, expected_status)
     headers = {
