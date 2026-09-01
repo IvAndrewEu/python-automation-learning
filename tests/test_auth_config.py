@@ -6,15 +6,12 @@ from config import API_TOKEN, BASE_URL
 
 
 @pytest.mark.parametrize(
-    "token, expected_status",
-    [(API_TOKEN, 200),
-    ("wrong token", 401)]
+    "headers, expected_status",
+    [({"Authorization": f"Bearer {API_TOKEN}"}, 200),
+    ({"Authorization": f"Bearer wrong token"}, 401),
+     ({}, 401)]
 )
-def test_get_headers(token, expected_status):
-    headers = {
-        "Authorization": f"Bearer {token}"
-    }
-
+def test_get_headers(headers, expected_status):
     response = requests.get(
         f"{BASE_URL}/bearer",
         headers=headers
