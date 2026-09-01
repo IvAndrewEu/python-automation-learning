@@ -20,5 +20,4 @@ def test_get_headers():
 def test_get_headers_without_token():
     response = requests.get(f"{BASE_URL}/bearer")
 
-    print(response.status_code)
-    print(response.json())
+    assert response.status_code == 401
