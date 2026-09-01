@@ -11,9 +11,9 @@ from config import API_TOKEN, BASE_URL
     ({"Authorization": f"Bearer wrong token"}, 200), #тут тоже должен быть статус код 401, но из-за условностей тестового контура тут статус код 200
     ({}, 401)],
     ids=[
-        "test_1",
-        "test_2",
-        "test_3"
+        "valid_token",
+        "wrong_token",
+        "without_token"
     ]
 )
 def test_get_headers(headers, expected_status):
