@@ -14,6 +14,6 @@ def test_post_body():
     )
 
     assert response.status_code == 200
-
     data = response.json()
-    print(data)
+    assert data["json"]["age"] == 27, f"data['json']['age'] != 27)"
+    assert data["json"]["name"] == "Andrew", f"data['json']['name'] != Andrew"
