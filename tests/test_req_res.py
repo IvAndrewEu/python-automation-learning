@@ -12,31 +12,48 @@ from config import REQRES_API_KEY
                     "email": "",
                     "password": ""
                 },
-            400,
-            "Missing email or username"
+                400,
+                "Missing email or username"
         ),
         (
                 {
                     "email": "",
                     "password": "Test1"
                  },
-            400,
-            "Missing email or username"
+                400,
+                "Missing email or username"
         ),
         (
                 {
                     "email": "test@test.test",
                     "password": ""
                 },
-            400,
-            "Missing password"
+                400,
+                "Missing password"
 
+        ),
+        (
+                {
+
+                },
+                400,
+                "Missing email or username"
+        ),
+        (
+                {
+                    "email": 123,
+                    "password": "Test1"
+                },
+                400,
+                "user not found"
         )
     ],
     ids=[
         "without_email_password",
         "without_email",
-        "without_password"
+        "without_password",
+        "empty_body",
+        "wrong_email_type"
     ]
 )
 def test_post_body(payload, expected_status, message_error):
@@ -52,6 +69,7 @@ def test_post_body(payload, expected_status, message_error):
 
 
     data = response.json()
+    print(response.status_code)
     print(data)
 
     assert response.status_code == expected_status
