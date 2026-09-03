@@ -5,28 +5,32 @@ from config import REQRES_API_KEY
 
 
 @pytest.mark.parametrize(
-    "payload, expected_status",
+    "payload, expected_status, message_error",
     [
         (
                 {
                     "email": "",
                     "password": ""
                 },
-            400
+            400,
+            "Missing email or username"
         ),
         (
                 {
                     "email": "",
                     "password": "Test1"
                  },
-            400
+            400,
+            "Missing email or username"
         ),
         (
                 {
                     "email": "test@test.test",
                     "password": ""
                 },
-            400
+            400,
+            "Missing password"
+
         )
     ],
     ids=[
@@ -35,7 +39,7 @@ from config import REQRES_API_KEY
         "without_password"
     ]
 )
-def test_post_body(payload, expected_status):
+def test_post_body(payload, expected_status, message_error):
     headers = {
         "x-api-key": REQRES_API_KEY
     }
@@ -46,4 +50,9 @@ def test_post_body(payload, expected_status):
         headers=headers
     )
 
+
+    data = response.json()
+    print(data)
+
     assert response.status_code == expected_status
+    assert data["error"] == message_error
