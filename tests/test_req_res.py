@@ -88,7 +88,8 @@ from config import REQRES_API_KEY
         "wrong_email_type",
         "wrong_password_type",
         "email_none",
-        "password_none"
+        "password_none",
+        "email_with_spaces"
     ]
 )
 def test_post_body(payload, expected_status, message_error):
