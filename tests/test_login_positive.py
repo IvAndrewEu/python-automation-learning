@@ -8,8 +8,8 @@ def test_success_login():
     }
 
     payload = {
-        "email": "test@test.test",
-        "password": "Test1"
+        "email": "eve.holt@reqres.in",
+        "password": "cityslicka"
     }
 
     response = requests.post(
