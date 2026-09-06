@@ -8,7 +8,7 @@ def test_success_login():
     }
 
     payload = {
-        "project_id": "49353",
+        "project_id": 49353,
         "email": "qa@example.com"
     }
 
