@@ -70,6 +70,14 @@ from config import REQRES_API_KEY
                 },
             400,
             "Missing password"
+        ),
+        (
+                {
+                    "email": "    ",
+                    "password": "Test1"
+                },
+            400,
+            "user not found"
         )
     ],
     ids=[
@@ -106,8 +114,8 @@ def test_wrong_password_type():
     }
 
     payload = {
-            "email": "  ",
-            "password": "Test1"
+            "email": "test@test.test",
+            "password": "    "
     }
 
     response = requests.post(
