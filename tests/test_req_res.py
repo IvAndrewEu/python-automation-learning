@@ -62,6 +62,14 @@ from config import REQRES_API_KEY
                 },
             400,
             "Missing email or username"
+        ),
+        (
+                {
+                    "email": "test@test.test",
+                    "password": None
+                },
+            400,
+            "Missing password"
         )
     ],
     ids=[
@@ -93,21 +101,21 @@ def test_post_body(payload, expected_status, message_error):
     assert response.status_code == expected_status
     assert data["error"] == message_error
 
-def test_wrong_password_type():
-    headers = {
-        "x-api-key": REQRES_API_KEY
-    }
-
-    payload = {
-            "email": "test@test.test",
-            "password": None
-    }
-
-    response = requests.post(
-        "https://reqres.in/api/login",
-        json=payload,
-        headers=headers
-    )
-
-    print(response.status_code)
-    print(response.json())
+# def test_wrong_password_type():
+#     headers = {
+#         "x-api-key": REQRES_API_KEY
+#     }
+#
+#     payload = {
+#             "email": "test@test.test",
+#             "password": None
+#     }
+#
+#     response = requests.post(
+#         "https://reqres.in/api/login",
+#         json=payload,
+#         headers=headers
+#     )
+#
+#     print(response.status_code)
+#     print(response.json())
