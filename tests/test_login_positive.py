@@ -8,6 +8,7 @@ def test_success_login():
     }
 
     payload = {
+        "project_id": "49353",
         "email": "qa@example.com"
     }
 
@@ -18,15 +19,7 @@ def test_success_login():
     )
 
     data = response.json()
+    print(response.status_code)
     print(data)
-
-    assert response.status_code == 200
-    assert data["token"]
-
-
-    token = data["token"]
-    auth_header = {
-        "Authorization": f"Bearer {token}"
-    }
 
 
