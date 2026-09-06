@@ -79,7 +79,7 @@ from config import REQRES_API_KEY
         "empty_body",
         "wrong_email_type",
         "wrong_password_type",
-        "user_name_none",
+        "email_none",
         "password_none"
     ]
 )
@@ -96,27 +96,25 @@ def test_post_body(payload, expected_status, message_error):
 
 
     data = response.json()
-    print(response.status_code)
-    print(data)
 
     assert response.status_code == expected_status
     assert data["error"] == message_error
 
-# def test_wrong_password_type():
-#     headers = {
-#         "x-api-key": REQRES_API_KEY
-#     }
-#
-#     payload = {
-#             "email": "test@test.test",
-#             "password": None
-#     }
-#
-#     response = requests.post(
-#         "https://reqres.in/api/login",
-#         json=payload,
-#         headers=headers
-#     )
-#
-#     print(response.status_code)
-#     print(response.json())
+def test_wrong_password_type():
+    headers = {
+        "x-api-key": REQRES_API_KEY
+    }
+
+    payload = {
+            "email": "  ",
+            "password": "Test1"
+    }
+
+    response = requests.post(
+        "https://reqres.in/api/login",
+        json=payload,
+        headers=headers
+    )
+
+    print(response.status_code)
+    print(response.json())
