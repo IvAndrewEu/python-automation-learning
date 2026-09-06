@@ -30,4 +30,13 @@ def test_success_login():
         "Authorization": f"Bearer {token}"
     }
 
+    response_2 = requests.get(
+        "https://reqres.in/app/collections/products/records",
+        headers=auth_header
+    )
+
+    print(response_2.status_code)
+    print(response_2.json())
+
+
 
