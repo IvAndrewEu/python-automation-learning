@@ -78,6 +78,14 @@ from config import REQRES_API_KEY
                 },
             400,
             "user not found"
+        ),
+        (
+                {
+                    "email": "test@test.test",
+                    "password": "    "
+                },
+            400,
+            "user not found"
         )
     ],
     ids=[
@@ -89,7 +97,8 @@ from config import REQRES_API_KEY
         "wrong_password_type",
         "email_none",
         "password_none",
-        "email_with_spaces"
+        "email_with_spaces",
+        "password_with_spaces"
     ]
 )
 def test_post_body(payload, expected_status, message_error):
