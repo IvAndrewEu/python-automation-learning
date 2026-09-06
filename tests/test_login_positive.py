@@ -22,3 +22,4 @@ def test_success_login():
     print(data)
 
     assert response.status_code == 200
+    assert data["token"]
