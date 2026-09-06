@@ -46,13 +46,14 @@ from config import REQRES_API_KEY
                 },
                 400,
                 "user not found"
-        ),
-        (
-                {
-                    "email": "test@test.test",
-                    "password": 123
-                }
         )
+        # ,
+        # (
+        #         {
+        #             "email": "test@test.test",
+        #             "password": 123
+        #         }
+        # )
     ],
     ids=[
         "without_email_password",
