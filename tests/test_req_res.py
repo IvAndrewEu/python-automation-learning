@@ -54,6 +54,14 @@ from config import REQRES_API_KEY
                 },
                 400,
                 "user not found"
+        ),
+        (
+                {
+                    "email": None,
+                    "password": "Test1"
+                },
+            400,
+            "Missing email or username"
         )
     ],
     ids=[
@@ -90,8 +98,8 @@ def test_wrong_password_type():
     }
 
     payload = {
-            "email": None,
-            "password": "Test1"
+            "email": "test@test.test",
+            "password": None
     }
 
     response = requests.post(
