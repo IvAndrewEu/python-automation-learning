@@ -20,6 +20,4 @@ def test_success_login():
 
     data = response.json()
     print(response.status_code)
-    print(data)
-
-
+    print(response.json())
