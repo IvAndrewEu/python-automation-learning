@@ -8,16 +8,23 @@ def test_success_login():
     }
 
     payload = {
-        "project_id": 49353,
         "email": "qa@example.com"
     }
 
     response = requests.post(
-        "https://reqres.in/api/app-users/login",
+        "https://reqres.in/api/login",
         headers=headers,
         json=payload
     )
 
     data = response.json()
-    print(response.status_code)
-    print(response.json())
+    print(data)
+
+    assert response.status_code == 200
+    assert data["token"]
+
+
+    token = data["token"]
+    auth_header = {
+        "Authorization": f"Bearer {token}"
+    }
