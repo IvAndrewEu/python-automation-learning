@@ -71,6 +71,7 @@ from config import REQRES_API_KEY
         "empty_body",
         "wrong_email_type",
         "wrong_password_type",
+        "wrong_username_type"
     ]
 )
 def test_post_body(payload, expected_status, message_error):
