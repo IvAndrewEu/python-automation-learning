@@ -8,7 +8,8 @@ def test_success_login():
     }
 
     payload = {
-        "email": "qa@example.com"
+        "email": "eve.holt@reqres.in",
+        "password": "cityslicka"
     }
 
     response = requests.post(
@@ -28,3 +29,5 @@ def test_success_login():
     auth_header = {
         "Authorization": f"Bearer {token}"
     }
+
+
