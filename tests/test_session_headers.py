@@ -5,5 +5,5 @@ def test_session_headers(session):
     data = response.json()
     print(data)
 
-    assert data["X-Test-Client"]
-    assert data["X-Test-Client"] == "python-aqa"
+    assert response.headers["X-Test-Client"]
+    assert response.headers["X-Test-Client"] == "python-aqa"
