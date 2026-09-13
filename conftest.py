@@ -3,7 +3,13 @@ import requests
 
 @pytest.fixture
 def session():
-    return requests.Session()
+    session = requests.Session()
+
+    session.headers.update({
+        "X-Test-Client": "python-aqa"
+    })
+
+    return session
 
 @pytest.fixture
 def base_url():
